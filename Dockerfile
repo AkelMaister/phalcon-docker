@@ -1,4 +1,4 @@
-FROM php:7.3-alpine
+FROM php:7.3-fpm-alpine
 
 ENV PHALCON_VERSION=3.4.5
 
