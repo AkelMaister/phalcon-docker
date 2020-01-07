@@ -29,4 +29,4 @@ RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev && \
     rm -rf /var/cache/apk/* && \
     apk del .build-dependencies
 
-RUN apk add --no-cache composer
+RUN apk add --no-cache composer git
