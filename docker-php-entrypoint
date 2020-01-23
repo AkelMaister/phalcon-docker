@@ -3,7 +3,7 @@ set -e
 
 # enable blackfile if needed
 if [ "$BLACKFIRE_ENABLE" == "true" ]; then
-    printf "extension=blackfire.so\nblackfire.agent_socket=tcp://${BLACKFIRE_AGENT_URL:-'127.0.0.1'}:${BLACKFIRE_AGENT_PORT:-'8707'}\n" > $PHP_INI_DIR/conf.d/blackfire.ini
+    printf "extension=blackfire.so\nblackfire.agent_socket=tcp://${BLACKFIRE_AGENT_URL:-127.0.0.1}:${BLACKFIRE_AGENT_PORT:-8707}\n" > $PHP_INI_DIR/conf.d/blackfire.ini
 fi
 
 # first arg is `-f` or `--some-option`
