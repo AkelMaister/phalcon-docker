@@ -1,7 +1,7 @@
 FROM php:7.3-fpm-alpine
 
 ENV PHALCON_VERSION=3.4.5
-ENV AMQP_VERSION=${AMQP_VERSION}
+ENV AMQP_VERSION=1.9.4
 
 RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev composer git \
  && apk add --no-cache --virtual .build-dependencies curl-dev zlib-dev ${PHPIZE_DEPS} \
