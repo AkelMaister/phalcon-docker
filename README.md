@@ -6,6 +6,10 @@
 
 `BLACKFIRE_AGENT_PORT` - set port of blackfire agent. Default: `8707`
 
+`BLACKFIRE_LOG_LEVEL` - set log level from `1` to `4`. Default: `1`
+
+`BLACKFIRE_LOG_FILE` - set log file for blackfire. Default `/dev/null`
+
 ## Build new Docker image
 
 ### Get current branch
