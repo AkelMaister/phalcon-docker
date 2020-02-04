@@ -40,4 +40,8 @@ RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev git \
  && rm -rf /var/cache/apk/* \
  && apk del .build-dependencies
 
-COPY ./docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
+RUN apk add --no-cache supervisor
+
+COPY scripts/* /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/*
