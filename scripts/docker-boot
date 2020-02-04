@@ -1,8 +1,8 @@
 ### create system user for php pool
 if [ ! -z ${PHP_USER+x} ] && [ ! -z ${PHP_UID+x} ] && [ ! -z ${PHP_GID+x} ] && [ ! -z ${PHP_HOME+x} ] && [ "$PHP_USER" != "" ] && [ "$PHP_UID" != "" ] && [ "$PHP_GID" != "" ] && [ "$PHP_HOME" != "" ]; then
         echo "env PHP_USER: creating new system user: ${PHP_USER} ${PHP_UID}:${PHP_GID} ${PHP_HOME}"
-        groupadd -f $PHP_USER -g $PHP_GID && \
-    useradd  -d $PHP_HOME -u $PHP_UID -g $PHP_GID -s /bin/false $PHP_USER
+        addgroup -g $PHP_GID $PHP_USER && \
+        adduser -h $PHP_HOME -G $PHP_GID -u $PHP_UID -D $PHP_USER
 fi
 
 ### load PHP ini configurations

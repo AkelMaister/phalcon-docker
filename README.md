@@ -30,6 +30,8 @@
 
 `PHP_BOOT_SCRIPTS` - set path to custom scripts what will be run at startup.
 
+`PHALCON_ENABLE` - set `false` if you want disable phalcon and psr modules.
+
 ### Create php user
 
 Must be set all of variables:
