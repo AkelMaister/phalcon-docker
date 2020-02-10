@@ -48,6 +48,7 @@ if [ ! -z ${PHP_BOOT_SCRIPTS+x} ] && [ "$PHP_BOOT_SCRIPTS" != "" ]; then
         done
         echo
         for f in $PHP_BOOT_SCRIPTS; do
+                chmod +x $f
                 /bin/sh -c $f
         done
 fi
