@@ -21,8 +21,10 @@ RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev git \
  && mkdir -p /usr/src/php/ext/php-psr \
  && mv /tmp/php-psr-${PSR_VERSION}/* /usr/src/php/ext/php-psr \
  && rm -rf /tmp/php-psr-${PSR_VERSION} \
- && docker-php-ext-configure amqp --with-amqp \
- && docker-php-ext-install zip pdo pdo_pgsql intl amqp php-psr \
+ && curl -sSL -o /usr/local/bin/install-php-extensions https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions \
+ && chmod +x /usr/local/bin/install-php-extensions \
+ && /usr/local/bin/install-php-extensions decimal zip pdo pdo_pgsql intl amqp php-psr bcmath \
+ && rm -f /usr/local/bin/install-php-extensions \
  && rm -rf /usr/src/php \
  && curl -L -o /tmp/phalcon.tar.gz https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz \
  && tar xzf /tmp/phalcon.tar.gz -C /tmp \
