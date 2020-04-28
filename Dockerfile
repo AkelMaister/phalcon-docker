@@ -1,4 +1,4 @@
-FROM php:7.4-alpine
+FROM php:7.4.5-alpine
 
 ENV AMQP_VERSION=1.9.4
 ENV PSR_VERSION=0.7.0
