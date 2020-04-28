@@ -1,8 +1,8 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.4.5-fpm-alpine
 
 ENV AMQP_VERSION=1.9.4
 ENV PSR_VERSION=0.7.0
-ENV PHALCON_VERSION=4.0.0
+ENV PHALCON_VERSION=4.0.5
 
 RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev && \
     apk add --no-cache --virtual .build-dependencies curl-dev zlib-dev ${PHPIZE_DEPS} && \
