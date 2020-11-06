@@ -32,6 +32,8 @@
 
 `PHALCON_ENABLE` - set `false` if you want disable phalcon and psr modules.
 
+`XDEBUG_ENABLE` - set `true` if you want to enable xdebug php module
+
 ### Create php user
 
 Must be set all of variables:
