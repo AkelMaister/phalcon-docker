@@ -4,7 +4,7 @@ ENV AMQP_VERSION=1.9.4
 ENV PSR_VERSION=0.7.0
 ENV PHALCON_VERSION=4.0.5
 
-RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev git \
+RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev git openssh-client \
  && apk add --no-cache --virtual .build-dependencies curl-dev zlib-dev ${PHPIZE_DEPS} \
  && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
  && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
