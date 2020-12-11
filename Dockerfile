@@ -1,4 +1,4 @@
-FROM php:7.4.5-fpm-alpine
+FROM php:7.4.12-fpm-alpine
 
 ENV AMQP_VERSION=1.9.4
 ENV PSR_VERSION=0.7.0
@@ -16,15 +16,15 @@ RUN apk add --no-cache libzip-dev postgresql-dev rabbitmq-c-dev icu-dev git open
  && mkdir -p /usr/src/php/ext/amqp \
  && mv /tmp/amqp-${AMQP_VERSION}/* /usr/src/php/ext/amqp \
  && rm -rf /tmp/amqp-${AMQP_VERSION} \
- && curl -L -o /tmp/php-psr.tar.gz https://github.com/jbboehr/php-psr/archive/v${PSR_VERSION}.tar.gz \
- && tar xzf /tmp/php-psr.tar.gz -C /tmp \
- && rm -f /tmp/php-psr.tar.gz \
- && mkdir -p /usr/src/php/ext/php-psr \
- && mv /tmp/php-psr-${PSR_VERSION}/* /usr/src/php/ext/php-psr \
+ && curl -L -o /tmp/psr.tar.gz https://github.com/jbboehr/php-psr/archive/v${PSR_VERSION}.tar.gz \
+ && tar xzf /tmp/psr.tar.gz -C /tmp \
+ && rm -f /tmp/psr.tar.gz \
+ && mkdir -p /usr/src/php/ext/psr \
+ && mv /tmp/php-psr-${PSR_VERSION}/* /usr/src/php/ext/psr \
  && rm -rf /tmp/php-psr-${PSR_VERSION} \
  && curl -sSL -o /usr/local/bin/install-php-extensions https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions \
  && chmod +x /usr/local/bin/install-php-extensions \
- && /usr/local/bin/install-php-extensions decimal zip pdo pdo_pgsql intl amqp php-psr bcmath redis apcu pcntl grpc protobuf xdebug \
+ && /usr/local/bin/install-php-extensions decimal zip pdo pdo_pgsql intl amqp psr bcmath redis apcu pcntl grpc protobuf xdebug gd sockets \
  && rm -f $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
  && rm -f /usr/local/bin/install-php-extensions \
  && rm -rf /usr/src/php \
